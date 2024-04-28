@@ -1,0 +1,9 @@
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.dal\bin\Debug\pe.com.expedientes.dal.dll
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.dal\bin\Debug\pe.com.expedientes.dal.pdb
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.dal\bin\Debug\pe.com.expedientes.bo.dll
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.dal\bin\Debug\pe.com.expedientes.bo.pdb
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.dal\obj\Debug\pe.com.expedientes.dal.csproj.AssemblyReference.cache
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.dal\obj\Debug\pe.com.expedientes.dal.csproj.CoreCompileInputs.cache
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.dal\obj\Debug\pe.com.expedientes.dal.csproj.CopyComplete
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.dal\obj\Debug\pe.com.expedientes.dal.dll
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.dal\obj\Debug\pe.com.expedientes.dal.pdb

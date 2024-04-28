@@ -1,0 +1,2 @@
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.bal\obj\Debug\pe.com.expedientes.bal.csproj.AssemblyReference.cache
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.bal\obj\Debug\pe.com.expedientes.bal.csproj.CoreCompileInputs.cache

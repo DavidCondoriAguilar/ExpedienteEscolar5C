@@ -1,0 +1,6 @@
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.bo\bin\Debug\pe.com.expedientes.bo.dll
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.bo\bin\Debug\pe.com.expedientes.bo.pdb
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.bo\obj\Debug\pe.com.expedientes.bo.csproj.AssemblyReference.cache
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.bo\obj\Debug\pe.com.expedientes.bo.csproj.CoreCompileInputs.cache
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.bo\obj\Debug\pe.com.expedientes.bo.dll
+C:\Users\DAVIDWILD\Desktop\Proyects\GsExEscolar\service\GestorExpedientesEstudiantiles\pe.com.expedientes.bo\obj\Debug\pe.com.expedientes.bo.pdb
