@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pe.com.expedientes.bo", "pe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pe.com.expedientes.dal", "pe.com.expedientes.dal\pe.com.expedientes.dal.csproj", "{0B19F3FE-520E-4E60-B68C-84F7AF3722EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pe.com.expediente.wsss", "pe.com.expediente.wsss\pe.com.expediente.wsss.csproj", "{6FD37D3F-C4F3-404A-8E48-059C67F7D3CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0B19F3FE-520E-4E60-B68C-84F7AF3722EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B19F3FE-520E-4E60-B68C-84F7AF3722EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B19F3FE-520E-4E60-B68C-84F7AF3722EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FD37D3F-C4F3-404A-8E48-059C67F7D3CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD37D3F-C4F3-404A-8E48-059C67F7D3CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD37D3F-C4F3-404A-8E48-059C67F7D3CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD37D3F-C4F3-404A-8E48-059C67F7D3CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
