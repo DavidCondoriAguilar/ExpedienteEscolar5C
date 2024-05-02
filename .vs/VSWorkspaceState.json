@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\pe.com.expediente.wsss",
+    "\\pe.com.expedientes.bal",
     "\\pe.com.expedientes.dal"
   ],
-  "SelectedNode": "\\pe.com.expediente.wsss\\ExpedienteEstudianteService.asmx.cs",
+  "SelectedNode": "\\pe.com.expedientes.bal\\BALEstudiante.cs",
   "PreviewInSolutionExplorer": false
 }
