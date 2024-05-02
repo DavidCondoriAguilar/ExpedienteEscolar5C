@@ -6,15 +6,22 @@ USE GestorExpedientesEstudiantiles;
 
 -- Crear tabla de estudiantes
 CREATE TABLE Estudiantes (
-    EstudianteID INT PRIMARY KEY IDENTITY, -- Clave primaria autoincrementable para identificar estudiantes
-    Nombre NVARCHAR(100) NOT NULL, -- Restricción NOT NULL para el nombre
-    Apellido NVARCHAR(100) NOT NULL, -- Restricción NOT NULL para el apellido
+    EstudianteID INT PRIMARY KEY IDENTITY,
+    Nombre NVARCHAR(100) NOT NULL,
+    Apellido NVARCHAR(100) NOT NULL,
     FechaNacimiento DATE,
     Direccion NVARCHAR(255),
     Email NVARCHAR(100),
     Telefono NVARCHAR(20),
-	Estado INT DEFAULT 1
+    Estado INT DEFAULT 1,
+    FechaEliminacion DATETIME -- Agregar la columna FechaEliminacion
 );
+
+select * from Estudiantes
+--ALTER TABLE Estudiantes
+--ADD FechaEliminacion DATETIME;
+
+
 --ALTER TABLE Estudiantes ADD Estado INT DEFAULT 1; -- Valor por defecto 1 para estado activo
 
 
@@ -97,6 +104,8 @@ CREATE TABLE Usuarios (
     Email NVARCHAR(100),
     RolID INT FOREIGN KEY REFERENCES Roles(RolID) -- Clave foránea que relaciona usuarios con roles
 );
+
+select * from Usuarios
 
 CREATE TABLE Roles (
     RolID INT PRIMARY KEY IDENTITY,
