@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using pe.com.expedientes.dal;
 
 
 namespace pe.com.expedientes.bal
@@ -21,19 +20,19 @@ namespace pe.com.expedientes.bal
             return dal.MostrarEstudiante();
         }
 
-        //public bool RegistrarEstudiante(BOEstudiante bc)
-        //{
-        //    return dal.RegistrarEstudiante(bc);
-        //}
+        public bool Registrarestudiante(BOEstudiante bc)
+        {
+            return dal.RegistrarEstudiante(bc);
+        }
 
-        //public bool ActualizarEstudiante(BOEstudiante bc)
-        //{
-        //    return dal.ActualizarEstudiante(bc);
-        //}
+        public bool Actualizarestudiante(BOEstudiante bc)
+        {
+            return dal.ActualizarEstudiante(bc);
+        }
 
-        //public bool EliminarEstudiante(int codigoestudiante)
-        //{
-        //    return dal.EliminarEstudiante(codigoestudiante);
-        //}
+        public bool Eliminarestudiante(BOEstudiante codigoestudiante)
+        {
+            return dal.EliminarEstudiante(codigoestudiante);
+        }
     }
 }

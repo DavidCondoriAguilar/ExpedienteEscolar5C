@@ -11,12 +11,5 @@ namespace pe.com.registro.bo
         {
 
         }
-
-        // Constructor con parámetros para simplificar la creación de objetos BOCategoria
-        //public BOCategoria(int categoriaID, string nombreCategoria)
-        //{
-        //    CategoriaID = categoriaID;
-        //    NombreCategoria = nombreCategoria;
-        //}
     }
 }

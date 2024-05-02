@@ -2,8 +2,6 @@
 using pe.com.registro.bo;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
 
 namespace pe.com.expediente.wsss
@@ -14,19 +12,58 @@ namespace pe.com.expediente.wsss
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
-    // [System.Web.Script.Services.ScriptService]
     public class ExpedientesService : System.Web.Services.WebService
     {
-
-
-        BALEstudiantes balestu = new BALEstudiantes();
+        private readonly BALEstudiantes balestu = new BALEstudiantes();
+        private readonly BALCategorias balcat = new BALCategorias();
 
         [WebMethod]
         public List<BOEstudiante> MostrarEstudiante()
         {
-            List<BOEstudiante> estudiantes = balestu.MostrarEstudianteTodo().ToList();
-            return estudiantes;
+            return balestu.MostrarEstudianteTodo();
+        }
+
+        [WebMethod]
+        public bool RegistrarEstudiante(BOEstudiante bc)
+        {
+            return balestu.Registrarestudiante(bc);
+        }
+
+        [WebMethod]
+        public bool ActualizarEstudiante(BOEstudiante bc)
+        {
+            return balestu.Actualizarestudiante(bc);
+        }
+
+        [WebMethod]
+        public bool EliminarEstudiante(BOEstudiante codigoEstudiante)
+        {
+            return balestu.Eliminarestudiante(codigoEstudiante);
+        }
+
+        //[WebMethod]
+        //public List<BALCategorias> MostrarCategoriaTodo()
+        //{
+        //    return balcat.MostrarCategoriasTodo();
+        //}
+
+        [WebMethod]
+        public bool RegistrarCategoria(BOCategoria bc)
+        {
+            return balcat.CrearCategoria(bc.NombreCategoria);
+        }
+
+
+        [WebMethod]
+        public bool ActualizarCategoria(int bc)
+        {
+            return balcat.ActualizarCategoria(bc);
+        }
+
+        [WebMethod]
+        public bool EliminarCategoria(int categoriaID)
+        {
+            return balcat.EliminarCategoria(categoriaID);
         }
     }
 }
