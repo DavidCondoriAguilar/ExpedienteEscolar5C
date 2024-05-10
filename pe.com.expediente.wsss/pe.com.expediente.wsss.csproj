@@ -67,15 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ExpedienteEstudianteService.asmx" />
     <Content Include="ExpedientesService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExpedienteEstudianteService.asmx.cs">
-      <DependentUpon>ExpedienteEstudianteService.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="ExpedientesService.asmx.cs">
       <DependentUpon>ExpedientesService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -99,6 +94,10 @@
     <ProjectReference Include="..\pe.com.expedientes.bo\pe.com.expedientes.bo.csproj">
       <Project>{ec2c12e0-47e9-414c-a4e8-b938c9ad11f0}</Project>
       <Name>pe.com.expedientes.bo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pe.com.expedientes.dal\pe.com.expedientes.dal.csproj">
+      <Project>{0B19F3FE-520E-4E60-B68C-84F7AF3722EE}</Project>
+      <Name>pe.com.expedientes.dal</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

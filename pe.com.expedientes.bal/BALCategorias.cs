@@ -1,51 +1,38 @@
-﻿using System;
+﻿using pe.com.expedientes.dal;
+using pe.com.registro.bo;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using pe.com.expedientes.dal; // Importa el namespace del DAL
-using pe.com.registro.bo; // Importa el namespace de la capa de objetos de negocio
 
 namespace pe.com.expedientes.bal
 {
-    public class BALCategorias
+    public class BALCategoria
     {
-        private readonly DALCategoria dalCategoria;
+        DALCategoria dal = new DALCategoria();
 
-        public BALCategorias(string connectionString)
+        public List<BOCategoria> MostrarCategorias()
         {
-            dalCategoria = new DALCategoria(connectionString);
+            return dal.MostrarCategorias();
         }
 
-        public string CrearCategoria(string nombreCategoria)
+
+        public string CrearCategoria(BOCategoria bc)
         {
-            return dalCategoria.CrearCategoria(nombreCategoria);
+            // Supongamos que bc.NombreCategoria es el nombre de la categoría a crear
+            return dal.CrearCategoria(bc.NombreCategoria);
         }
 
-        public List<BOCategoria> ObtenerCategoria(string nombreCategoria)
+
+        public bool ActualizarCategoria(int categoriaID, string nombre)
         {
-            var dataTable = dalCategoria.ObtenerCategoria(nombreCategoria);
-            List<BOCategoria> listaCategorias = new List<BOCategoria>();
-
-            foreach (DataRow row in dataTable.Rows)
-            {
-                BOCategoria categoria = new BOCategoria
-                {
-                    CategoriaID = Convert.ToInt32(row["CategoriaID"]),
-                    NombreCategoria = Convert.ToString(row["NombreCategoria"])
-                };
-                listaCategorias.Add(categoria);
-            }
-
-            return listaCategorias;
-        }
-
-        public bool ActualizarCategoria(BOCategoria bc)
-        {
-            return dalCategoria.ActualizarCategoria(bc);
+            // Supongamos que categoriaID es el ID de la categoría a actualizar
+            return dal.ActualizarCategoria(categoriaID, nombre);
         }
 
         public bool EliminarCategoria(int categoriaID)
         {
-            return dalCategoria.EliminarCategoria(categoriaID);
+            // Supongamos que categoriaID es el ID de la categoría a eliminar
+            return dal.EliminarCategoria(categoriaID);
         }
     }
 }

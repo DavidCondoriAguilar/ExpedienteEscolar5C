@@ -1,4 +1,6 @@
-﻿using System;
+﻿using pe.com.registro.bo;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -6,89 +8,161 @@ namespace pe.com.expedientes.dal
 {
     public class DALCategoria
     {
-        private readonly string connectionString;
+        Conexion objconexion = new Conexion();
+        private SqlCommand cmd;
+        private int res = 0;
 
-        public DALCategoria(string connectionString)
+        public List<BOCategoria> MostrarCategorias()
         {
-            this.connectionString = connectionString;
+            List<BOCategoria> listaCategorias = new List<BOCategoria>();
+
+            try
+            {
+                cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_MostrarCategorias";
+                cmd.Connection = objconexion.Conectar();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    BOCategoria categoria = new BOCategoria
+                    {
+                        CategoriaID = Convert.ToInt32(row["CategoriaID"]),
+                        NombreCategoria = Convert.ToString(row["NombreCategoria"])
+                    };
+                    listaCategorias.Add(categoria);
+                }
+
+                return listaCategorias;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            finally
+            {
+                objconexion.CerrarConexion();
+            }
         }
 
-        public DALCategoria(Conexion conexion)
+
+        public DataTable ObtenerCategoria(string nombreCategoria)
         {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_ObtenerCategoria";
+                cmd.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
+                cmd.Connection = objconexion.Conectar();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataTable);
+
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            finally
+            {
+                objconexion.CerrarConexion();
+            }
         }
 
         public string CrearCategoria(string nombreCategoria)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand("SP_CrearCategoria", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
+                cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_CrearCategoria";
+                cmd.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
+                cmd.Connection = objconexion.Conectar();
 
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        string mensaje = Convert.ToString(reader["Mensaje"]);
-                        return mensaje;
-                    }
-                    return "Error al crear la categoría.";
+                cmd.Connection.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    return "Categoría creada exitosamente";
                 }
+                else
+                {
+                    return "Error al crear la categoría";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return "Error al crear la categoría";
+            }
+            finally
+            {
+                objconexion.CerrarConexion();
             }
         }
 
-        public DataTable ObtenerCategoria(string nombreCategoria)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand("SP_ObtenerCategoria", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
-
-                    connection.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    return dataTable;
-                }
-            }
-        }
 
         public bool ActualizarCategoria(int categoriaID, string nombre)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand("SP_ActualizarCategoria", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@categoriaID", categoriaID);
-                    command.Parameters.AddWithValue("@nombre", nombre);
+                cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_ActualizarCategoria";
+                cmd.Parameters.AddWithValue("@categoriaID", categoriaID);
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Connection = objconexion.Conectar();
 
-                    connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
+                cmd.Connection.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
 
-                    return rowsAffected > 0;
-                }
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+            finally
+            {
+                objconexion.CerrarConexion();
             }
         }
 
         public bool EliminarCategoria(int categoriaID)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand("SP_EliminarCategoria", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@categoriaID", categoriaID);
+                cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_EliminarCategoria";
+                cmd.Parameters.AddWithValue("@categoriaID", categoriaID);
+                cmd.Connection = objconexion.Conectar();
 
-                    connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
+                cmd.Connection.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
 
-                    return rowsAffected > 0;
-                }
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+            finally
+            {
+                objconexion.CerrarConexion();
             }
         }
     }

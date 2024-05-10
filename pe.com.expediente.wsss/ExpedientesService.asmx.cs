@@ -1,4 +1,5 @@
 ﻿using pe.com.expedientes.bal;
+using pe.com.expedientes.dal;
 using pe.com.registro.bo;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace pe.com.expediente.wsss
     public class ExpedientesService : System.Web.Services.WebService
     {
         private readonly BALEstudiantes balestu = new BALEstudiantes();
-        private readonly BALCategorias balcat = new BALCategorias();
+        private readonly DALCategoria balcat = new DALCategoria();
 
         [WebMethod]
         public List<BOEstudiante> MostrarEstudiante()
@@ -41,24 +42,26 @@ namespace pe.com.expediente.wsss
             return balestu.Eliminarestudiante(codigoEstudiante);
         }
 
-        //[WebMethod]
-        //public List<BALCategorias> MostrarCategoriaTodo()
-        //{
-        //    return balcat.MostrarCategoriasTodo();
-        //}
+        [WebMethod]
+        public List<BOCategoria> MostrarCategoria()
+        {
+            return  balcat.MostrarCategorias();
+        }
 
         [WebMethod]
-        public bool RegistrarCategoria(BOCategoria bc)
+        public string RegistrarCategoria(BOCategoria bc)
         {
             return balcat.CrearCategoria(bc.NombreCategoria);
         }
 
 
+
         [WebMethod]
-        public bool ActualizarCategoria(int bc)
+        public bool ActualizarCategoria(int categoriaID, string nombre)
         {
-            return balcat.ActualizarCategoria(bc);
+            return balcat.ActualizarCategoria(categoriaID, nombre);
         }
+
 
         [WebMethod]
         public bool EliminarCategoria(int categoriaID)
