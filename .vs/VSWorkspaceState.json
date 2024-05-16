@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\pe.com.expediente.wsss",
     "\\pe.com.expedientes.bal",
     "\\pe.com.expedientes.dal"
   ],
-  "SelectedNode": "\\pe.com.expedientes.dal\\connectanding.cs",
+  "SelectedNode": "\\pe.com.expedientes.bal\\BALEstudiante.cs",
   "PreviewInSolutionExplorer": false
 }

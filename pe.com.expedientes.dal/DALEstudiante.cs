@@ -32,6 +32,20 @@ public class DALEstudiante
                 objest.Email = dr["Email"].ToString();
                 objest.Telefono = dr["Telefono"].ToString();
                 objest.Estado = Convert.ToInt32(dr["Estado"]);
+
+                // Nuevos campos a mostrar
+                objest.Genero = dr["Genero"].ToString();
+                objest.NumeroIdentificacion = dr["NumeroIdentificacion"].ToString();
+                objest.TipoDocumento = dr["TipoDocumento"].ToString();
+                objest.Grado = dr["Grado"].ToString();
+                objest.NombreTutor = dr["NombreTutor"].ToString();
+                objest.TelefonoTutor = dr["TelefonoTutor"].ToString();
+                objest.FechaIngreso = Convert.ToDateTime(dr["FechaIngreso"]);
+                //objest.Ultima = Convert.ToDateTime(dr["UltimaActualizacion"]);
+                objest.FechaEliminacion = Convert.ToDateTime(dr["FechaEliminacion"]);
+                objest.Notas = dr["Notas"].ToString();
+                objest.Edad = Convert.ToInt32(dr["Edad"]);
+
                 lista.Add(objest);
             }
             return lista;
@@ -46,6 +60,7 @@ public class DALEstudiante
             objconexion.CerrarConexion();
         }
     }
+
 
     public bool RegistrarEstudiante(BOEstudiante be)
     {
@@ -63,6 +78,7 @@ public class DALEstudiante
             cmd.Parameters.AddWithValue("@email", be.Email);
             cmd.Parameters.AddWithValue("@telefono", be.Telefono);
             cmd.Parameters.AddWithValue("@estado", be.Estado);
+            cmd.Parameters.AddWithValue("@notas", be.Notas); 
 
             res = cmd.ExecuteNonQuery();
 
@@ -97,6 +113,19 @@ public class DALEstudiante
             cmd.Parameters.AddWithValue("@telefono", be.Telefono);
             cmd.Parameters.AddWithValue("@estado", be.Estado);
 
+            // Nuevos campos a actualizar
+            cmd.Parameters.AddWithValue("@genero", be.Genero);
+            cmd.Parameters.AddWithValue("@numeroIdentificacion", be.NumeroIdentificacion);
+            cmd.Parameters.AddWithValue("@tipoDocumento", be.TipoDocumento);
+            cmd.Parameters.AddWithValue("@grado", be.Grado);
+            cmd.Parameters.AddWithValue("@nombreTutor", be.NombreTutor);
+            cmd.Parameters.AddWithValue("@telefonoTutor", be.TelefonoTutor);
+            cmd.Parameters.AddWithValue("@fechaIngreso", be.FechaIngreso);
+            //cmd.Parameters.AddWithValue("@ultimaActualizacion", be.UltimaActualizacion);
+            cmd.Parameters.AddWithValue("@fechaEliminacion", be.FechaEliminacion);
+            cmd.Parameters.AddWithValue("@notas", be.Notas);
+            cmd.Parameters.AddWithValue("@edad", be.Edad);
+
             res = cmd.ExecuteNonQuery();
 
             return res == 1;
@@ -121,18 +150,11 @@ public class DALEstudiante
             cmd.CommandText = "SP_EliminarEstudiante";
             cmd.Connection = objconexion.Conectar();
 
-            cmd.Parameters.AddWithValue("@estudianteID", estudianteID.Estado);
+            cmd.Parameters.AddWithValue("@estudianteID", estudianteID.EstudianteID); 
 
             res = cmd.ExecuteNonQuery();
 
-            if (res == 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return res == 1;
         }
         catch (Exception ex)
         {
@@ -144,6 +166,7 @@ public class DALEstudiante
             objconexion.CerrarConexion();
         }
     }
+
 
     public bool ActualizarEstudianteEstado(BOEstudiante be, int? nuevoEstado)
     {

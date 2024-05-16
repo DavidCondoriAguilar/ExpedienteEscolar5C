@@ -1,8 +1,8 @@
 ﻿using pe.com.expedientes.bal;
 using pe.com.expedientes.dal;
 using pe.com.registro.bo;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Services;
 
 namespace pe.com.expediente.wsss
@@ -15,8 +15,8 @@ namespace pe.com.expediente.wsss
     [System.ComponentModel.ToolboxItem(false)]
     public class ExpedientesService : System.Web.Services.WebService
     {
-        private readonly BALEstudiantes balestu = new BALEstudiantes();
-        private readonly DALCategoria balcat = new DALCategoria();
+         BALEstudiantes balestu = new BALEstudiantes();
+         BALCategoria balcat = new BALCategoria();
 
         [WebMethod]
         public List<BOEstudiante> MostrarEstudiante()
@@ -45,23 +45,20 @@ namespace pe.com.expediente.wsss
         [WebMethod]
         public List<BOCategoria> MostrarCategoria()
         {
-            return  balcat.MostrarCategorias();
+            return balcat.MostrarCategorias();
         }
 
         [WebMethod]
         public string RegistrarCategoria(BOCategoria bc)
         {
-            return balcat.CrearCategoria(bc.NombreCategoria);
+            return balcat.CrearCategoria(bc);
         }
-
-
 
         [WebMethod]
         public bool ActualizarCategoria(int categoriaID, string nombre)
         {
             return balcat.ActualizarCategoria(categoriaID, nombre);
         }
-
 
         [WebMethod]
         public bool EliminarCategoria(int categoriaID)
